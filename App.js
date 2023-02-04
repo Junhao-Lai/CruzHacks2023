@@ -4,7 +4,7 @@ import './App.css';
 //useeffect allows you to fetch component before its mounted.
 
 function MyButton() {
-  const options = ["Milk", "Egg", "Peanuts", "Fish", "Shrimp"]
+  const options = ["Milk", "Egg", "Peanuts"]
   return (
     <select>
       <option>Please select an allergen.</option>
