@@ -2,6 +2,8 @@ import './App.css';
 //import axios from 'axios';
 //import {useState, useEffect} from 'react';
 //useeffect allows you to fetch component before its mounted.
+document.body.style.backgroundColor = 'black';
+document.body.style.color = 'white';
 
 function MyButton() {
   const options = ["Milk", "Egg", "Peanuts", "Fish", "Shrimp"]
