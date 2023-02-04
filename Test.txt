@@ -1,0 +1,1 @@
+This file is just to test if git works from Claude's laptop.
