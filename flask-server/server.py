@@ -21,16 +21,16 @@ def response_allergy_dishes():
 		date = request_json['date']
 
 		if len(date) != 3:
-			return Response(json.dumps({"Error": "Internal Error"}), status_code)
+			return Response(json.dumps({"Error": "Internal Error: data"}), status_code)
 
 
 		status_code = 200
 
 		return Response(json.dumps({
-			"Message": "This is a response"
+			"Message": "This is a response"\
 		}), status_code)
 	except (KeyError):
-		return Response(json.dumps({"Error": "Internal Error"}), status_code)
+		return Response(json.dumps({"Error": "Internal Error: key"}), status_code)
 
 
 if __name__ == "__main__":
