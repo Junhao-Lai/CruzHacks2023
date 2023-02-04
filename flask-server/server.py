@@ -27,7 +27,7 @@ def response_allergy_dishes():
 		status_code = 200
 
 		return Response(json.dumps({
-			"Message": "This is a response"\
+			"Message": "This is a response"
 		}), status_code)
 	except (KeyError):
 		return Response(json.dumps({"Error": "Internal Error: key"}), status_code)
