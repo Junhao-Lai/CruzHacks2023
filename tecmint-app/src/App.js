@@ -117,7 +117,7 @@ function App() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="selectedOption1">Option 1:</label>
+      <label htmlFor="selectedOption1">Select your allergen:</label>
       <select
         id="selectedOption1"
         value={selectedOption1}
@@ -131,7 +131,7 @@ function App() {
         <option value="Shrimp">Shrimp</option>
       </select>
       <br />
-      <label htmlFor="selectedOption2">Option 2:</label>
+      <label htmlFor="selectedOption2">Select a location:</label>
       <select
         id="selectedOption2"
         value={selectedOption2}
@@ -150,10 +150,14 @@ function App() {
         value={selectedOption3}
         onChange={(e) => setSelectedOption3(e.target.value)}
       >
-        <option value="">Select an option</option>
-        <option value="Option 1">Option 1</option>
-        <option value="Option 2">Option 2</option>
-        <option value="Option 3">Option 3</option>
+        <option value="">Select a day</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+        <option value="Sunday">Sunday</option>
       </select>
       <br />
       <button type="submit">Submit</button>
