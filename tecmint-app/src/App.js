@@ -1,3 +1,4 @@
+/*
 import './App.css';
 import axios from 'axios';
 import {useState, useEffect} from 'react';
@@ -91,3 +92,73 @@ export default function MyApp() {
     </div>
   );
 }
+*/
+import React, { useState } from "react";
+import axios from "axios";
+
+function App() {
+  const [selectedOption1, setSelectedOption1] = useState("");
+  const [selectedOption2, setSelectedOption2] = useState("");
+  const [selectedOption3, setSelectedOption3] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:3000/", {
+        selectedOption1,
+        selectedOption2,
+        selectedOption3,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="selectedOption1">Option 1:</label>
+      <select
+        id="selectedOption1"
+        value={selectedOption1}
+        onChange={(e) => setSelectedOption1(e.target.value)}
+      >
+        <option value="">Select an option</option>
+        <option value="Milk">Milk</option>
+        <option value="Egg">Egg</option>
+        <option value="Peanut">Peanut</option>
+        <option value="Fish">Fish</option>
+        <option value="Shrimp">Shrimp</option>
+      </select>
+      <br />
+      <label htmlFor="selectedOption2">Option 2:</label>
+      <select
+        id="selectedOption2"
+        value={selectedOption2}
+        onChange={(e) => setSelectedOption2(e.target.value)}
+      >
+        <option value="">Select an option</option>
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2">Option 2</option>
+        <option value="Option 3">Option 3</option>
+      </select>
+      <br />
+      <label htmlFor="selectedOption3">Option 3:</label>
+      <select
+        id="selectedOption3"
+        value={selectedOption3}
+        onChange={(e) => setSelectedOption3(e.target.value)}
+      >
+        <option value="">Select an option</option>
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2">Option 2</option>
+        <option value="Option 3">Option 3</option>
+      </select>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+export default App;
+
