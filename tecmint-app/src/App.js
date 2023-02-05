@@ -5,7 +5,7 @@ import './App.css';
 document.body.style.backgroundColor = 'black';
 document.body.style.color = 'white';
 
-function MyButton() {
+function Food() {
   const options = ["Milk", "Egg", "Peanuts", "Fish", "Shrimp"]
   return (
     <select>
@@ -20,11 +20,28 @@ function MyButton() {
   );
 }
 
+function Hall() {
+  const options = ["9/10 Dining Hall", "Porter", "Crown", "Cowell"]
+  return (
+    <select>
+      <option>Please select a dining hall</option>
+      {options.map((option,index)=>{
+        return <option key = {index}>
+          {option}
+        </option>
+      })}
+    </select>
+  );
+}
+
+
+
 export default function MyApp() {
   return (
     <div>
       <h1>UCSC Allergen Reminder</h1>
-      <MyButton />
+      <Food />
+      <Hall />
     </div>
   );
 }
