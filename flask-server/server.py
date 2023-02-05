@@ -62,7 +62,7 @@ def response_allergy_dishes():
 		date = request_json['date']
 
 		if len(date) != 3:
-			return Response(json.dumps({"Error": "Internal Error"}), status_code)
+			return Response(json.dumps({"Error": "Internal Error: data"}), status_code)
 
 
 		dish_list = get_dish_list()
