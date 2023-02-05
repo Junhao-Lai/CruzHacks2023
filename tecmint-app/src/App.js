@@ -55,9 +55,10 @@ export default function MyApp() {
   return (
     <div>
       <h1>UCSC Allergen Reminder</h1>
+      <img src="https://nutrition.sa.ucsc.edu/images/dining-logo-foodpro.png" alt="Example Image"/>
       <Food />
       <Hall />
-      <Day />
+      <Day />      
     </div>
   );
 }
