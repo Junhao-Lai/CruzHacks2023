@@ -34,6 +34,21 @@ function Hall() {
   );
 }
 
+function Day() {
+  const options = ["Monday", "Tuesday", "Wednesday", "Thursday","Friday","Saturday","Sunday"]
+  return (
+    <select>
+      <option>Please select the Day</option>
+      {options.map((option,index)=>{
+        return <option key = {index}>
+          {option}
+        </option>
+      })}
+    </select>
+  );
+}
+
+
 
 
 export default function MyApp() {
@@ -42,6 +57,7 @@ export default function MyApp() {
       <h1>UCSC Allergen Reminder</h1>
       <Food />
       <Hall />
+      <Day />
     </div>
   );
 }
