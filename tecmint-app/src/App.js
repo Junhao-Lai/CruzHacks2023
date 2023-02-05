@@ -101,6 +101,8 @@ import axios from "axios";
 document.body.style.backgroundColor = 'black';
 document.body.style.color = 'white';
 
+
+
 function App() {
   const [selectedOption1, setSelectedOption1] = useState("");
   const [selectedOption2, setSelectedOption2] = useState("");
@@ -120,10 +122,18 @@ function App() {
     }
   };
 
-
+  
+  
 
   return (
+
+    
+    <div>
+    <img src="https://nutrition.sa.ucsc.edu/images/dining-logo-foodpro.png" alt="Example Image"/>  
     <form onSubmit={handleSubmit}>
+      <h1 id = "test">UCSC Allergens Reminder.</h1>
+      
+      
       <label htmlFor="selectedOption1">Select allergies:</label>
       <select
         id="selectedOption1"
@@ -175,7 +185,9 @@ function App() {
       <br />
       <button type="submit">Submit</button>
     </form>
+    </div>
   );
+
 }
 
 export default App;
