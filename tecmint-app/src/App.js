@@ -174,9 +174,9 @@ function App() {
       >
         <option value="">Select</option>
         <option value="College 9/ Lewis Dining Hall">College 9/ Lewis Dining Hall</option>
-        <option value="Porter/ Kresge Dining Hall">Porter</option>
-        <option value="Crown/ Merrill Dining Hall">Crown</option>
-        <option value="Cowell/ Stevenson Dining Hall">Cowell</option>
+        <option value="Porter/ Kresge Dining Hall">Porter/ Kresge Dining Hall</option>
+        <option value="Crown/ Merrill Dining Hall">Crown/ Merrill Dining Hall</option>
+        <option value="Cowell/ Stevenson Dining Hall">Cowell/ Stevenson Dining Hall</option>
       </select>
       <br />
       <br />
