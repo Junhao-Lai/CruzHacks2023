@@ -123,7 +123,7 @@ function App() {
         value={selectedOption1}
         onChange={(e) => setSelectedOption1(e.target.value)}
       >
-        <option value="">Select an option</option>
+        <option value="">Select your allergen</option>
         <option value="Milk">Milk</option>
         <option value="Egg">Egg</option>
         <option value="Peanut">Peanut</option>
@@ -137,10 +137,11 @@ function App() {
         value={selectedOption2}
         onChange={(e) => setSelectedOption2(e.target.value)}
       >
-        <option value="">Select an option</option>
-        <option value="Option 1">Option 1</option>
-        <option value="Option 2">Option 2</option>
-        <option value="Option 3">Option 3</option>
+        <option value="">Select a location</option>
+        <option value="College 9/ Lewis Dining Hall">College 9/ Lewis Dining Hall</option>
+        <option value="Porter">Porter</option>
+        <option value="Crown">Crown</option>
+        <option value="Cowell">Cowell</option>
       </select>
       <br />
       <label htmlFor="selectedOption3">Option 3:</label>
