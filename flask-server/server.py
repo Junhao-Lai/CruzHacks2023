@@ -21,24 +21,29 @@ class Allergy(db.Model):
 
 
 
-class Menu(db.Model):
+class Menus(db.Model):
 	dish_name = db.Column(db.String(100), nullable=False, primary_key=True)
 	location = db.Column(db.String(40), nullable=False, primary_key=True)
 	date = db.Column(db.String(3), nullable=False, primary_key=True)
 	__table_args__ = (PrimaryKeyConstraint('dish_name', 'location', 'date', name='pk_dishName_location_date'),)
 
 	def __repr__(self) -> str:
-		return f"Menu: {self.description}"
+		return f"Menus: {self.description}"
 
-	def __init__(self, description) -> None:
+	def __init__(self,   ) -> None:
 		self.description = description
 
 # this function is used to get the list of allergy dishes
 def get_dish_list(location, date, allergen):
 	dish_list = []
-	menu_dishes = db.session.query(Menu).filter(Menu.location == location, Menu.date == date).all()
+	print("Good before get all in menu_dishes")
+	menu_dishes = db.session.query(Menus).filter(Menus.location == location, Menus.date == date).all()
+	print("Good after get all in menu_dishes")
+	print(menu_dishes)
+	print("Good before for")
 	for menu_dish in menu_dishes:
 		allergy_dish = db.session.query(Allergy).filter(Allergy.dishName == menu_dish.dishName, Allergy.allergen == allergen).first()
+		print("Good after get first from allergy_dish")
 		if allergy_dish:
 			dish_list.append({
 				"name": allergy_dish.dishName
@@ -64,8 +69,8 @@ def response_allergy_dishes():
 		if len(date) != 3:
 			return Response(json.dumps({"Error": "Internal Error: data"}), status_code)
 
-
-		dish_list = get_dish_list()
+		#print("Good before getting list")
+		dish_list = get_dish_list(location, date, allergen)
 		status_code = 200
 		if len(dish_list) == 0:
 			return Response(json.dumps({
@@ -78,11 +83,11 @@ def response_allergy_dishes():
 			"Dish_list": dish_list
 		}), status_code)
 
-	except:
+	except (KeyError):
 		return Response(json.dumps({"Error": "Internal Error"}), status_code)
 
 
 if __name__ == "__main__":
-	app.run(debug=True, host='0.0.0.0', port = "4848")
+	app.run(debug=True, host='0.0.0.0', port = "3000")
 
 	
