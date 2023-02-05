@@ -4,7 +4,7 @@ from sqlalchemy import PrimaryKeyConstraint
 import json, requests
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgresuper@localhost:4848/allergy_menus'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgresuper@localhost:3000/allergy_menus'
 db = SQLAlchemy(app)
 
 
@@ -27,11 +27,6 @@ class Menus(db.Model):
 	date = db.Column(db.String(3), nullable=False, primary_key=True)
 	__table_args__ = (PrimaryKeyConstraint('dish_name', 'location', 'date', name='pk_dishName_location_date'),)
 
-	def __repr__(self) -> str:
-		return f"Menus: {self.description}"
-
-	def __init__(self,   ) -> None:
-		self.description = description
 
 # this function is used to get the list of allergy dishes
 def get_dish_list(location, date, allergen):
