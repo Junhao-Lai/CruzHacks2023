@@ -93,8 +93,13 @@ export default function MyApp() {
   );
 }
 */
+
+
 import React, { useState } from "react";
 import axios from "axios";
+
+document.body.style.backgroundColor = 'black';
+document.body.style.color = 'white';
 
 function App() {
   const [selectedOption1, setSelectedOption1] = useState("");
@@ -115,49 +120,57 @@ function App() {
     }
   };
 
+
+
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="selectedOption1">Select your allergen:</label>
+      <label htmlFor="selectedOption1">Select allergies:</label>
       <select
         id="selectedOption1"
         value={selectedOption1}
         onChange={(e) => setSelectedOption1(e.target.value)}
       >
-        <option value="">Select your allergen</option>
+        <option value="">Select</option>
         <option value="Milk">Milk</option>
         <option value="Egg">Egg</option>
         <option value="Peanut">Peanut</option>
         <option value="Fish">Fish</option>
-        <option value="Shrimp">Shrimp</option>
+        <option value="Shellfish">Shellfish</option>
+        <option value="Soy">Soy</option>
+        <option value="Tree Nut">Tree Nut</option>
+        <option value="Sesame">Sesame</option>
+
+
+        
       </select>
       <br />
-      <label htmlFor="selectedOption2">Select a location:</label>
+      <label htmlFor="selectedOption2">Select Dining Hall:</label>
       <select
         id="selectedOption2"
         value={selectedOption2}
         onChange={(e) => setSelectedOption2(e.target.value)}
       >
-        <option value="">Select a location</option>
+        <option value="">Select</option>
         <option value="College 9/ Lewis Dining Hall">College 9/ Lewis Dining Hall</option>
         <option value="Porter">Porter</option>
         <option value="Crown">Crown</option>
         <option value="Cowell">Cowell</option>
       </select>
       <br />
-      <label htmlFor="selectedOption3">Option 3:</label>
+      <label htmlFor="selectedOption3">Select Day of Week:</label>
       <select
         id="selectedOption3"
         value={selectedOption3}
         onChange={(e) => setSelectedOption3(e.target.value)}
       >
-        <option value="">Select a day</option>
+        <option value="">Select</option>
+        <option value="Sunday">Sunday</option>
         <option value="Monday">Monday</option>
         <option value="Tuesday">Tuesday</option>
-        <option value="Wednesday">Wednesday</option>
+        <option value="Wesdneday">Wesdneday</option>
         <option value="Thursday">Thursday</option>
         <option value="Friday">Friday</option>
         <option value="Saturday">Saturday</option>
-        <option value="Sunday">Sunday</option>
       </select>
       <br />
       <button type="submit">Submit</button>
