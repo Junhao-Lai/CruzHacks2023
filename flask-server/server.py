@@ -81,7 +81,6 @@ def response_allergy_dishes():
 	except (KeyError):
 		return Response(json.dumps({"Error": "Internal Error"}), status_code)
 
-
 if __name__ == "__main__":
 	app.run(debug=True, host='0.0.0.0', port = "3000")
 

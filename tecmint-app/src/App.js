@@ -115,6 +115,10 @@ function App() {
         selectedOption1,
         selectedOption2,
         selectedOption3,
+      },{
+        headers:{
+          'Content-Type': 'application/json'
+        }
       });
       console.log(response.data);
     } catch (error) {
