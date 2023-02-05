@@ -97,7 +97,7 @@ export default function MyApp() {
 
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {format} from "date-fns"
+//import {format} from "date-fns"
 import "./App.css"
 document.body.style.backgroundColor = 'darkblue';
 document.body.style.color = 'white';
@@ -112,10 +112,10 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/", {
-        selectedOption1,
-        selectedOption2,
-        selectedOption3,
+      const response = await axios.get("http://localhost:5000/", {
+        "allergen": selectedOption1,
+        "location": selectedOption2,
+        "date": selectedOption3,
       },{
         headers:{
           'Content-Type': 'application/json'

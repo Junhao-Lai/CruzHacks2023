@@ -1,5 +1,6 @@
 from flask import Flask, request, Response
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 from sqlalchemy import PrimaryKeyConstraint, and_
 import json, requests
 import psycopg2
@@ -7,6 +8,7 @@ import psycopg2
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgresuper@localhost:5432/allergy_reminder'
 db = SQLAlchemy(app)
+CORS(app)
 
 conn = psycopg2.connect(
 	host="localhost",
@@ -92,6 +94,6 @@ def response_allergy_dishes():
 		return Response(json.dumps({"Error": "Internal Error"}), status_code)
 
 if __name__ == "__main__":
-	app.run(debug=True, port = "5432")
+	app.run(debug=True, port = "5000")
 
 	
