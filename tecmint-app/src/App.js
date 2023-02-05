@@ -95,10 +95,11 @@ export default function MyApp() {
 */
 
 
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
-
-document.body.style.backgroundColor = 'black';
+import {format} from "date-fns"
+import "./App.css"
+document.body.style.backgroundColor = 'darkblue';
 document.body.style.color = 'white';
 
 
@@ -115,6 +116,10 @@ function App() {
         selectedOption1,
         selectedOption2,
         selectedOption3,
+      },{
+        headers:{
+          'Content-Type': 'application/json'
+        }
       });
       console.log(response.data);
     } catch (error) {
@@ -129,12 +134,22 @@ function App() {
 
     
     <div>
-    <img src="https://nutrition.sa.ucsc.edu/images/dining-logo-foodpro.png" alt="Example Image"/>  
+      
+    <img src="https://nutrition.sa.ucsc.edu/images/dining-logo-foodpro.png" alt="UcscDining"/>  
     <form onSubmit={handleSubmit}>
       <h1 id = "test">UCSC Allergens Reminder.</h1>
+      <h3>Welcome to the UCSC Allergens Reminder Website. We are dedicated to 
+        making sure that people with any food allergies will have meals at any dining hall
+        that are suitable for them everday. 
+      </h3>
+
+      <h4>Please select any allergies you have, which dining hall you plan to go to, and 
+        what day of week you are going. It will then display the list of dishes that should 
+        be prevented.
+      </h4>
       
       
-      <label htmlFor="selectedOption1">Select allergies:</label>
+      <label htmlFor="selectedOption1">Select allergies: </label>
       <select
         id="selectedOption1"
         value={selectedOption1}
@@ -149,12 +164,14 @@ function App() {
         <option value="Soy">Soy</option>
         <option value="Tree Nut">Tree Nut</option>
         <option value="Sesame">Sesame</option>
+        
 
 
         
       </select>
       <br />
-      <label htmlFor="selectedOption2">Select Dining Hall:</label>
+      <br />
+      <label htmlFor="selectedOption2">Select Dining Hall: </label>
       <select
         id="selectedOption2"
         value={selectedOption2}
@@ -162,12 +179,13 @@ function App() {
       >
         <option value="">Select</option>
         <option value="College 9/ Lewis Dining Hall">College 9/ Lewis Dining Hall</option>
-        <option value="Porter">Porter</option>
-        <option value="Crown">Crown</option>
-        <option value="Cowell">Cowell</option>
+        <option value="Porter/ Kresge Dining Hall">Porter/ Kresge Dining Hall</option>
+        <option value="Crown/ Merrill Dining Hall">Crown/ Merrill Dining Hall</option>
+        <option value="Cowell/ Stevenson Dining Hall">Cowell/ Stevenson Dining Hall</option>
       </select>
       <br />
-      <label htmlFor="selectedOption3">Select Day of Week:</label>
+      <br />
+      <label htmlFor="selectedOption3">Select Day of Week: </label>
       <select
         id="selectedOption3"
         value={selectedOption3}
@@ -177,11 +195,12 @@ function App() {
         <option value="Sunday">Sunday</option>
         <option value="Monday">Monday</option>
         <option value="Tuesday">Tuesday</option>
-        <option value="Wesdneday">Wesdneday</option>
+        <option value="Wednesday">Wesdneday</option>
         <option value="Thursday">Thursday</option>
         <option value="Friday">Friday</option>
         <option value="Saturday">Saturday</option>
       </select>
+      <br />
       <br />
       <button type="submit">Submit</button>
     </form>
